@@ -1,6 +1,6 @@
 # ITY Local Toolchain
 
-*Ce repository n'a vocation d'etre utilisé qu'au cours de la préparation de la certification DevOps IB Cegos Rennes pour le groupe ITY. *
+*Ce repository n'a vocation à être utilisé qu'au cours de la préparation de la certification DevOps IB Cegos Rennes pour le groupe ITY. *
 
 ## Toolchain locale de développement
 
