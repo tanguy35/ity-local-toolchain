@@ -47,5 +47,5 @@ pipeline {
 //        kubernetesDeploy(configs: 'kube-deployment.yml', kubeconfigId: 'kubeconf')
 //      }
 //    }
-//  }
+  }
 }
