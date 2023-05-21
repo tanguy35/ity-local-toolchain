@@ -1,0 +1,44 @@
+kind: Pod
+metadata:
+  annotations:
+    io.kubernetes.cri-o.TTY/jenkins: "true"
+    io.podman.annotations.autoremove/jenkins: "FALSE"
+    io.podman.annotations.init/jenkins: "FALSE"
+    io.podman.annotations.privileged/jenkins: "TRUE"
+    io.podman.annotations.publish-all/jenkins: "FALSE"
+    org.opencontainers.image.base.digest/jenkins: sha256:93481c4f846dc4a733724eddc01d2b1934a6c2fb1a3d5cb42bdac75d
+    org.opencontainers.image.base.name/jenkins: docker.io/jenkins/jenkins:latest
+  creationTimestamp: "2023-05-21T14:48:54Z"
+  labels:
+    app: jenkins-pod
+  name: jenkins-pod
+spec:
+  containers:
+  - args:
+    - ./startup.sh
+    env:
+    - name: HOSTNAME
+      value: jenkins
+    image: docker.io/spywash/devops:jenkins-docker
+    name: jenkins
+    ports:
+    - containerPort: 8080
+      hostPort: 8080
+    - containerPort: 50000
+      hostPort: 50000
+    securityContext:
+      privileged: true
+    tty: true
+    volumeMounts:
+    - mountPath: /var/run
+      name: 15e5e3a7aa476e86702a94335361bf2e8f76c90162e2c9a2ec3e434963fad488-pvc
+    - mountPath: /var/jenkins_home
+      name: 77f0a8f961721514db4c0718e68382dfdc8576fcb8de6a1399db4bfc146bab3f-pvc
+  hostname: jenkins
+  volumes:
+  - name: 15e5e3a7aa476e86702a94335361bf2e8f76c90162e2c9a2ec3e434963fad488-pvc
+    persistentVolumeClaim:
+      claimName: 15e5e3a7aa476e86702a94335361bf2e8f76c90162e2c9a2ec3e434963fad488
+  - name: 77f0a8f961721514db4c0718e68382dfdc8576fcb8de6a1399db4bfc146bab3f-pvc
+    persistentVolumeClaim:
+      claimName: 77f0a8f961721514db4c0718e68382dfdc8576fcb8de6a1399db4bfc146bab3f
