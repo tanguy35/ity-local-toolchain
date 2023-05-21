@@ -23,21 +23,21 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url: '') {
+        withDockerRegistry(credentialsId: 'dockerhubcredentials', url: '') {
           sh 'docker push spywash/devops:result'
         }
       }
     }
     stage('Push vote image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url: '') {
+        withDockerRegistry(credentialsId: 'dockerhubcredentials', url: '') {
           sh 'docker push spywash/devops:vote'
         }
       }
     }
     stage('Push worker image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url: '') {
+        withDockerRegistry(credentialsId: 'dockerhubcredentials', url: '') {
           sh 'docker push spywash/devops:worker'
         }
       }
