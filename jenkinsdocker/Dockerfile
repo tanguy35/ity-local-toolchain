@@ -1,5 +1,4 @@
 FROM jenkins/jenkins
-VOLUME /var/run
 COPY startup.sh ./
 USER root
 RUN apt-get update -y
