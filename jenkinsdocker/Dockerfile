@@ -2,6 +2,7 @@ FROM jenkins/jenkins
 COPY startup.sh ./
 USER root
 RUN apt-get update -y
+RUN apt-get install -y git
 RUN apt-get install -y ca-certificates curl gnupg
 RUN install -m 0755 -d /etc/apt/keyrings
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
