@@ -1,6 +1,6 @@
 # Docker compose local toolchain
 services:
-  vote:
+  jenkins:
     build: ./jenkinsdocker
     ports:
       - "80:8080"
