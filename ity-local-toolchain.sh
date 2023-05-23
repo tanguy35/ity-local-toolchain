@@ -23,4 +23,4 @@ echo " LANCEMENT DU CONTAINER JENKINS + DOCKER "
 
 docker build ./ -t docker.io/spywash/devops:jenkins-docker-$arch
 
-docker run --privileged docker.io/spywash/devops:jenkins-docker-$arch
+docker run -p 80:8080 --privileged docker.io/spywash/devops:jenkins-docker-$arch
