@@ -13,5 +13,9 @@ RUN echo \
  tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update -y
 RUN apt-get install -y docker-ce
+
+RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.deb
+RUN dpkg -i trivy_0.18.3_Linux-64bit.deb
+
 RUN chmod +x startup.sh
 CMD [ "./startup.sh" ]
